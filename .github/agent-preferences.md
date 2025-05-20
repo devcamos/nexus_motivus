@@ -1,5 +1,25 @@
 # AI Agent Interaction Preferences
 
+## Response Format Preferences
+
+1. **Progress Updates**
+   - Use bullet points for step-by-step progress
+   - Include emoji indicators for status (✅ success, ⚠️ warning, ❌ error)
+   - Show command outputs when relevant
+   - Indicate when waiting for user input
+
+2. **Code Explanations**
+   - Use markdown code blocks with proper language tags
+   - Include inline comments for complex logic
+   - Break down large code segments into digestible chunks
+   - Highlight key changes or important lines
+
+3. **Decision Points**
+   - Present options in a numbered list
+   - Include pros and cons for each option
+   - Highlight recommended option with reasoning
+   - Use tables for feature/option comparisons
+
 ## Communication Style
 
 1. **Design Decisions**

@@ -10,14 +10,16 @@ export default function TopicPage() {
   const params = useParams();
   const router = useRouter();
   const topicId = params.topicId as string;
-  
+
   const topic = findTopicById(topicId);
 
   if (!topic) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-50 to-white">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-purple-800 mb-4">Topic not found</h1>
+          <h1 className="text-2xl font-bold text-purple-800 mb-4">
+            Topic not found
+          </h1>
           <button
             type="button"
             onClick={() => router.push('/')}
@@ -57,7 +59,7 @@ export default function TopicPage() {
         </div>
 
         {/* Subtopics Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
           {topic.subtopics.map((subtopic) => (
             <div
               key={subtopic.id}
@@ -81,14 +83,15 @@ export default function TopicPage() {
         </div>
 
         {/* Fun Fact Section */}
-        <div className="mt-16 bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 text-center">
+        <div className="bg-gradient-to-r from-green-50 to-blue-50 rounded-2xl p-8 text-center">
           <h2 className="text-2xl font-bold text-green-800 mb-4">
             ✨ Did You Know?
           </h2>
           <p className="text-green-700 text-lg max-w-3xl mx-auto">
-            Nature has been our pharmacy for thousands of years! Every culture around the world 
-            has discovered amazing plants and practices that help us feel better, think clearer, 
-            and live healthier lives. You're about to explore some of nature's best-kept secrets!
+            Nature has been our pharmacy for thousands of years! Every culture
+            around the world has discovered amazing plants and practices that
+            help us feel better, think clearer, and live healthier lives. You're
+            about to explore some of nature's best-kept secrets!
           </p>
         </div>
       </div>

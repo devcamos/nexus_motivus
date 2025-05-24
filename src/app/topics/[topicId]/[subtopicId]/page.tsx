@@ -16,7 +16,7 @@ export default function SubtopicPage() {
   const router = useRouter();
   const topicId = params.topicId as string;
   const subtopicId = params.subtopicId as string;
-  
+
   const [selectedConcept, setSelectedConcept] = useState<Concept | null>(null);
   const [showChatPrompt, setShowChatPrompt] = useState(false);
 
@@ -27,7 +27,9 @@ export default function SubtopicPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-b from-purple-50 to-white">
         <div className="text-center">
-          <h1 className="text-2xl font-bold text-purple-800 mb-4">Subtopic not found</h1>
+          <h1 className="text-2xl font-bold text-purple-800 mb-4">
+            Subtopic not found
+          </h1>
           <button
             onClick={() => router.push('/')}
             className="bg-purple-600 text-white px-6 py-3 rounded-full hover:bg-purple-700 transition-colors"
@@ -63,8 +65,8 @@ export default function SubtopicPage() {
           </button>
           <span className="text-purple-400">→</span>
           <button
-            type="button"
             onClick={() => router.push(`/topics/${topicId}`)}
+            type="button"
             className="text-purple-600 hover:text-purple-800 transition-colors"
           >
             {topic.emoji} {topic.name}
@@ -112,7 +114,7 @@ export default function SubtopicPage() {
               <p className="text-purple-600 text-sm leading-relaxed mb-4">
                 {concept.description}
               </p>
-              
+
               {/* Interactive Indicators */}
               <div className="flex items-center gap-4 text-xs text-green-600">
                 <div className="flex items-center gap-1">
@@ -128,7 +130,7 @@ export default function SubtopicPage() {
                   <span>Try</span>
                 </div>
               </div>
-              
+
               <div className="mt-3 text-green-500 text-sm font-medium group-hover:text-green-600">
                 Start exploring! 💬
               </div>
@@ -142,19 +144,17 @@ export default function SubtopicPage() {
             🎯 Ready to Dive Deep?
           </h2>
           <p className="text-green-700 text-lg max-w-3xl mx-auto">
-            Each concept above opens up a world of discovery! Click on any one to start 
-            a conversation. You can ask questions, try exercises, and learn in a way 
-            that makes sense to you. Think of me as your friendly guide through nature's wisdom!
+            Each concept above opens up a world of discovery! Click on any one
+            to start a conversation. You can ask questions, try exercises, and
+            learn in a way that makes sense to you. Think of me as your friendly
+            guide through nature's wisdom!
           </p>
         </div>
       </div>
 
       {/* Chat Prompt Modal */}
       {showChatPrompt && selectedConcept && (
-        <ChatPrompt
-          concept={selectedConcept}
-          onCloseAction={closeChatPrompt}
-        />
+        <ChatPrompt concept={selectedConcept} onCloseAction={closeChatPrompt} />
       )}
     </div>
   );

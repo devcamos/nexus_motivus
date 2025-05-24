@@ -17,16 +17,24 @@ interface ChatPromptProps {
 
 type ChatMode = 'intro' | 'questions' | 'exercises' | 'chat';
 
-export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) {
+export default function ChatPrompt({
+  concept,
+  onCloseAction,
+}: ChatPromptProps) {
   const [mode, setMode] = useState<ChatMode>('intro');
   const [userMessage, setUserMessage] = useState('');
-  const [chatMessages, setChatMessages] = useState<Array<{role: 'user' | 'assistant', content: string}>>([]);
+  const [chatMessages, setChatMessages] = useState<
+    Array<{ role: 'user' | 'assistant'; content: string }>
+  >([]);
 
   const handleQuestionClick = (question: string) => {
     setMode('chat');
     setChatMessages([
       { role: 'user', content: question },
-      { role: 'assistant', content: `Great question! ${question}\n\nLet me explain this in a simple way...` }
+      {
+        role: 'assistant',
+        content: `Great question! ${question}\n\nLet me explain this in a simple way...`,
+      },
     ]);
   };
 
@@ -34,17 +42,23 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
     setMode('chat');
     setChatMessages([
       { role: 'user', content: `I want to try: ${exercise}` },
-      { role: 'assistant', content: `Awesome! Let's do this together. ${exercise}\n\nHere's how we'll start...` }
+      {
+        role: 'assistant',
+        content: `Awesome! Let's do this together. ${exercise}\n\nHere's how we'll start...`,
+      },
     ]);
   };
 
   const handleSendMessage = () => {
     if (!userMessage.trim()) return;
-    
-    setChatMessages(prev => [
+
+    setChatMessages((prev) => [
       ...prev,
       { role: 'user', content: userMessage },
-      { role: 'assistant', content: `Thanks for asking about "${userMessage}"! This is where the real conversation would happen with an AI assistant who can explain ${concept.name} in detail.` }
+      {
+        role: 'assistant',
+        content: `Thanks for asking about "${userMessage}"! This is where the real conversation would happen with an AI assistant who can explain ${concept.name} in detail.`,
+      },
     ]);
     setUserMessage('');
     setMode('chat');
@@ -90,8 +104,12 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
                 >
                   <MessageCircleIcon />
                   <div>
-                    <div className="font-semibold text-blue-800">Ask Questions</div>
-                    <div className="text-blue-600 text-sm">Get answers about {concept.name}</div>
+                    <div className="font-semibold text-blue-800">
+                      Ask Questions
+                    </div>
+                    <div className="text-blue-600 text-sm">
+                      Get answers about {concept.name}
+                    </div>
                   </div>
                 </button>
 
@@ -102,8 +120,12 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
                 >
                   <LightbulbIcon />
                   <div>
-                    <div className="font-semibold text-purple-800">Try Exercises</div>
-                    <div className="text-purple-600 text-sm">Hands-on activities and experiments</div>
+                    <div className="font-semibold text-purple-800">
+                      Try Exercises
+                    </div>
+                    <div className="text-purple-600 text-sm">
+                      Hands-on activities and experiments
+                    </div>
                   </div>
                 </button>
 
@@ -114,8 +136,12 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
                 >
                   <BookOpenIcon />
                   <div>
-                    <div className="font-semibold text-green-800">Free Chat</div>
-                    <div className="text-green-600 text-sm">Ask me anything about this topic</div>
+                    <div className="font-semibold text-green-800">
+                      Free Chat
+                    </div>
+                    <div className="text-green-600 text-sm">
+                      Ask me anything about this topic
+                    </div>
                   </div>
                 </button>
               </div>
@@ -132,7 +158,9 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
                 >
                   ← Back
                 </button>
-                <h3 className="text-lg font-bold text-blue-800">Popular Questions</h3>
+                <h3 className="text-lg font-bold text-blue-800">
+                  Popular Questions
+                </h3>
               </div>
               {concept.chatPrompt.questions.map((question, index) => (
                 <button
@@ -157,7 +185,9 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
                 >
                   ← Back
                 </button>
-                <h3 className="text-lg font-bold text-purple-800">Try These Activities</h3>
+                <h3 className="text-lg font-bold text-purple-800">
+                  Try These Activities
+                </h3>
               </div>
               {concept.chatPrompt.exercises.map((exercise, index) => (
                 <button
@@ -166,7 +196,9 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
                   type="button"
                   className="w-full text-left p-4 bg-purple-50 hover:bg-purple-100 rounded-xl transition-colors"
                 >
-                  <div className="font-medium text-purple-800">🎯 {exercise}</div>
+                  <div className="font-medium text-purple-800">
+                    🎯 {exercise}
+                  </div>
                 </button>
               ))}
             </div>
@@ -182,9 +214,11 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
                 >
                   ← Back
                 </button>
-                <h3 className="text-lg font-bold text-green-800">Chat about {concept.name}</h3>
+                <h3 className="text-lg font-bold text-green-800">
+                  Chat about {concept.name}
+                </h3>
               </div>
-              
+
               {/* Chat Messages */}
               <div className="space-y-3 max-h-60 overflow-y-auto">
                 {chatMessages.map((message, index) => (
@@ -207,7 +241,9 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
               {/* Follow-up Prompts */}
               {chatMessages.length === 0 && (
                 <div className="space-y-2">
-                  <p className="text-gray-600 text-sm mb-3">💡 Try asking about:</p>
+                  <p className="text-gray-600 text-sm mb-3">
+                    💡 Try asking about:
+                  </p>
                   {concept.chatPrompt.followUpPrompts.map((prompt, index) => (
                     <button
                       key={index}
@@ -241,13 +277,18 @@ export default function ChatPrompt({ concept, onCloseAction }: ChatPromptProps) 
                 disabled={!userMessage.trim()}
                 type="button"
                 aria-label="Send message"
-                className={`p-2 rounded-lg ${userMessage.trim() ? 'bg-green-500 text-white' : 'bg-gray-200 text-gray-400'}`}
+                className={`p-2 rounded-lg ${
+                  userMessage.trim()
+                    ? 'bg-green-500 text-white'
+                    : 'bg-gray-200 text-gray-400'
+                }`}
               >
                 <SendIcon />
               </button>
             </div>
             <p className="text-xs text-gray-500 mt-2 text-center">
-              💡 This is a demo - in the real app, this would connect to an AI assistant!
+              💡 This is a demo - in the real app, this would connect to an AI
+              assistant!
             </p>
           </div>
         )}

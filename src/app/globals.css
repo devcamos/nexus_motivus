@@ -1,4 +1,4 @@
-@import "tailwindcss";
+@import 'tailwindcss';
 
 :root {
   --background: #ffffff;
@@ -37,8 +37,28 @@ body {
   }
 }
 
+@keyframes pulse-glow {
+  0%,
+  100% {
+    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.25);
+  }
+  50% {
+    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
+  }
+}
+
 .animate-fade-in {
   animation: fade-in 0.3s ease-out;
+}
+
+/* CTA Button Enhancement */
+.cta-button {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.cta-button:hover {
+  animation: none;
+  cursor: pointer;
 }
 
 /* Enhanced dropdown hover effects */

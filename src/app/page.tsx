@@ -5,10 +5,26 @@ import { useRouter } from 'next/navigation';
 import RotatingQuotes from '@/components/RotatingQuotes';
 
 const topics = [
-  { id: 'brain', name: '🧠 Brain Health', description: 'Learn about memory, thinking, and learning' },
-  { id: 'health', name: '❤️ Healthy Living', description: 'Discover exercise, food, and sleep' },
-  { id: 'focus', name: '🎯 Super Focus', description: 'Master concentration and attention' },
-  { id: 'adaptogens', name: '🌿 Natural Helpers', description: 'Explore special plants and herbs' },
+  {
+    id: 'brain',
+    name: '🧠 Brain Health',
+    description: 'Learn about memory, thinking, and learning',
+  },
+  {
+    id: 'health',
+    name: '❤️ Healthy Living',
+    description: 'Discover exercise, food, and sleep',
+  },
+  {
+    id: 'focus',
+    name: '🎯 Super Focus',
+    description: 'Master concentration and attention',
+  },
+  {
+    id: 'adaptogens',
+    name: '🌿 Natural Helpers',
+    description: 'Explore special plants and herbs',
+  },
 ];
 
 export default function Home() {
@@ -27,10 +43,10 @@ export default function Home() {
         {/* Welcoming Hero Section */}
         <div className="text-center mb-12 space-y-6">
           <h1 className="text-5xl md:text-6xl font-bold text-purple-800 tracking-tight">
-            Hello, Curious Mind! 🌟
+            Hey There, Health Explorer! 🌟
           </h1>
           <p className="text-xl text-purple-600 max-w-xl mx-auto">
-            Let's explore big health ideas in simple ways.
+            Let's discover amazing health secrets in simple ways.
           </p>
         </div>
 
@@ -39,7 +55,7 @@ export default function Home() {
           {/* Dropdown Label */}
           <div className="text-center mb-4">
             <h2 className="text-2xl font-bold text-purple-800 mb-2">
-              What would you like to learn about today? 🎯
+              Which topic excites you most? 🎯
             </h2>
             <p className="text-purple-600 text-sm">
               Click the dropdown below to see all available topics
@@ -48,8 +64,8 @@ export default function Home() {
 
           {/* Enhanced Dropdown */}
           <div className="relative group">
-            <label htmlFor="topic-selector" className="block text-sm font-medium text-purple-700 mb-2">
-              📚 Available Topics:
+            <label htmlFor="topic-selector" className="sr-only">
+              Choose a topic
             </label>
             <div className="relative">
               <select
@@ -57,15 +73,15 @@ export default function Home() {
                 value={selectedTopic}
                 onChange={(e) => setSelectedTopic(e.target.value)}
                 className="w-full pl-6 pr-12 py-5 text-lg border-2 border-purple-200 rounded-xl bg-white hover:bg-purple-50 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 text-purple-800 font-medium cursor-pointer shadow-sm transition-all duration-200 appearance-none"
-                style={{ 
+                style={{
                   backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b46c1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
                   backgroundPosition: 'right 1rem center',
                   backgroundRepeat: 'no-repeat',
-                  backgroundSize: '1.5em 1.5em'
+                  backgroundSize: '1.5em 1.5em',
                 }}
               >
                 <option value="" disabled>
-                  👆 Click here to see all topics...
+                  👆 Choose your learning adventure...
                 </option>
                 {topics.map((topic) => (
                   <option key={topic.id} value={topic.id}>
@@ -74,28 +90,48 @@ export default function Home() {
                 ))}
               </select>
             </div>
-            
+
             {/* Helpful hint */}
             {!selectedTopic && (
               <p className="text-xs text-purple-500 mt-2 text-center animate-pulse">
-                💡 Tip: Click the box above to see {topics.length} amazing topics!
+                💡 Tip: Click the box above to see {topics.length} amazing
+                topics!
               </p>
             )}
           </div>
 
+          {/* Topic Description - only show when topic is selected */}
           {selectedTopic && (
-            <div className="text-center animate-fade-in">
-              <p className="text-purple-600 mb-4">
-                {topics.find(t => t.id === selectedTopic)?.description}
+            <div className="text-center animate-fade-in mb-4">
+              <p className="text-purple-600">
+                {topics.find((t) => t.id === selectedTopic)?.description}
               </p>
-              <button
-                onClick={handleExplore}
-                className="bg-purple-600 text-white px-8 py-4 rounded-full text-lg font-medium hover:bg-purple-700 transform hover:scale-105 transition-all duration-200 shadow-md hover:shadow-lg"
-              >
-                Start Learning! 🚀
-              </button>
             </div>
           )}
+
+          {/* Button - always visible but changes state based on selection */}
+          <div className="text-center">
+            <button
+              type="button"
+              onClick={handleExplore}
+              disabled={!selectedTopic}
+              className={`px-8 py-4 rounded-full text-lg font-medium transition-all duration-200 shadow-md relative overflow-hidden group ${
+                selectedTopic
+                  ? 'bg-purple-600 text-white hover:bg-purple-700 transform hover:scale-105 hover:shadow-lg cursor-pointer'
+                  : 'bg-gray-300 text-gray-500 cursor-not-allowed opacity-60'
+              }`}
+            >
+              <span className="relative z-10">
+                {selectedTopic
+                  ? 'Start Learning! 🚀'
+                  : 'Select a topic first 📚'}
+              </span>
+              {/* Highlight effect - only active when enabled */}
+              {selectedTopic && (
+                <div className="absolute inset-0 bg-gradient-to-r from-purple-400 to-purple-600 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              )}
+            </button>
+          </div>
         </div>
 
         {/* Footer Quote */}

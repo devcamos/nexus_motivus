@@ -3,29 +3,13 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import RotatingQuotes from '@/components/RotatingQuotes';
+import { topicsData } from '@/data/topicsData';
 
-const topics = [
-  {
-    id: 'brain',
-    name: '🧠 Brain Health',
-    description: 'Learn about memory, thinking, and learning',
-  },
-  {
-    id: 'health',
-    name: '❤️ Healthy Living',
-    description: 'Discover exercise, food, and sleep',
-  },
-  {
-    id: 'focus',
-    name: '🎯 Super Focus',
-    description: 'Master concentration and attention',
-  },
-  {
-    id: 'adaptogens',
-    name: '🌿 Natural Helpers',
-    description: 'Explore special plants and herbs',
-  },
-];
+const topics = topicsData.map((topic) => ({
+  id: topic.id,
+  name: `${topic.emoji} ${topic.name}`,
+  description: topic.description,
+}));
 
 export default function Home() {
   const [selectedTopic, setSelectedTopic] = useState('');
@@ -72,13 +56,7 @@ export default function Home() {
                 id="topic-selector"
                 value={selectedTopic}
                 onChange={(e) => setSelectedTopic(e.target.value)}
-                className="w-full pl-6 pr-12 py-5 text-lg border-2 border-purple-200 rounded-xl bg-white hover:bg-purple-50 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 text-purple-800 font-medium cursor-pointer shadow-sm transition-all duration-200 appearance-none"
-                style={{
-                  backgroundImage: `url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b46c1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e")`,
-                  backgroundPosition: 'right 1rem center',
-                  backgroundRepeat: 'no-repeat',
-                  backgroundSize: '1.5em 1.5em',
-                }}
+                className="w-full pl-6 pr-12 py-5 text-lg border-2 border-purple-200 rounded-xl bg-white hover:bg-purple-50 focus:border-purple-500 focus:outline-none focus:ring-2 focus:ring-purple-200 text-purple-800 font-medium cursor-pointer shadow-sm transition-all duration-200 appearance-none dropdown-arrow"
               >
                 <option value="" disabled>
                   👆 Choose your learning adventure...

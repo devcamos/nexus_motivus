@@ -1,19 +1,20 @@
-#!/bin/bash
+bash commit_changes.sh#!/bin/bash
 
 # Create and switch to new branch
-git checkout -b home_dashboard
+git checkout -b natural_helpers_impl
 
 # Add all changes
 git add .
 
 # Commit with descriptive message
-git commit -m "feat: improve home dashboard dropdown and button UX
+git commit -m "feat: implement natural helpers section and fix errors
 
-- Restore original placeholder option in dropdown for better UX
-- Keep button always visible with dynamic states (enabled/disabled)
-- Add screen reader accessibility with sr-only label
-- Fix JSX syntax errors and corrupted code structure
-- Maintain smooth transitions and hover effects
-- Button shows 'Select a topic first' when disabled, 'Start Learning!' when enabled"
+- Fix syntax errors in ChatPrompt component
+- Fix errors in topic and subtopic pages
+- Improve back button styling with arrow icon
+- Add proper button type attributes for accessibility
+- Fix Unicode character display issues
+- Ensure consistent styling across the application
+- Implement proper error handling for missing topics/subtopics"
 
-echo "Changes committed to home_dashboard branch successfully!"
+echo "Changes committed to natural_helpers_impl branch successfully!"

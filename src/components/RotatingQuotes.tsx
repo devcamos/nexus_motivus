@@ -64,19 +64,17 @@ export default function RotatingQuotes() {
 
   return (
     <div className="mt-12 text-center min-h-[4rem] flex items-center justify-center px-4">
-      <div className="max-w-2xl mx-auto bg-purple-50 rounded-xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300 relative">
-        <div className="absolute -top-3 -left-3 text-purple-200 text-4xl">"</div>
-        <div className="absolute -bottom-3 -right-3 text-purple-200 text-4xl rotate-180">"</div>
+      <div className="max-w-2xl mx-auto bg-purple-50 rounded-xl p-6 shadow-lg transform hover:scale-105 transition-all duration-300">
         <p 
           className={`
-            text-purple-700 italic text-lg md:text-xl font-light
+            text-purple-700 italic text-base md:text-lg font-light
             transition-all duration-600 ease-in-out
             ${isVisible 
               ? 'opacity-100 transform translate-y-0 scale-100' 
               : 'opacity-0 transform translate-y-4 scale-95'}
           `}
         >
-          {quotes[currentQuote].text} {quotes[currentQuote].emoji}
+          "{quotes[currentQuote].text}" {quotes[currentQuote].emoji}
         </p>
       </div>
     </div>

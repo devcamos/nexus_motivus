@@ -1,9 +1,11 @@
 'use client';
-
-import { useState } from 'react';
 import { useParams, useRouter } from 'next/navigation';
-import { findTopicById, findSubtopicById, Concept } from '@/data/topicsData';
+import { useState } from 'react';
+
+
+
 import ChatPrompt from '@/components/ChatPrompt';
+import { findTopicById, findSubtopicById, Concept } from '@/data/topicsData';
 
 // Simple icon components to replace lucide-react
 const ArrowLeft = () => <span className="text-xl">←</span>;
@@ -147,7 +149,7 @@ export default function SubtopicPage() {
             Each concept above opens up a world of discovery! Click on any one
             to start a conversation. You can ask questions, try exercises, and
             learn in a way that makes sense to you. Think of me as your friendly
-            guide through nature's wisdom!
+            guide through nature&apos;s wisdom!
           </p>
         </div>
       </div>

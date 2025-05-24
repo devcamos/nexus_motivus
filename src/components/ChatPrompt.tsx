@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+
 import { Concept } from '@/data/topicsData';
 
 // Simple icon components to replace lucide-react

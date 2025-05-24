@@ -1,7 +1,8 @@
 'use client';
 
-import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
+
 import RotatingQuotes from '@/components/RotatingQuotes';
 import { topicsData } from '@/data/topicsData';
 
@@ -30,7 +31,7 @@ export default function Home() {
             Hey There, Health Explorer! 🌟
           </h1>
           <p className="text-xl text-purple-600 max-w-xl mx-auto">
-            Let's discover amazing health secrets in simple ways.
+            Let&apos;s discover amazing health secrets in simple ways.
           </p>
         </div>
 

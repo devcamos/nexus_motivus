@@ -1,6 +1,7 @@
 'use client';
 
 import { useParams, useRouter } from 'next/navigation';
+
 import { findTopicById } from '@/data/topicsData';
 
 // Simple icon component to replace lucide-react
@@ -90,8 +91,8 @@ export default function TopicPage() {
           <p className="text-green-700 text-lg max-w-3xl mx-auto">
             Nature has been our pharmacy for thousands of years! Every culture
             around the world has discovered amazing plants and practices that
-            help us feel better, think clearer, and live healthier lives. You're
-            about to explore some of nature's best-kept secrets!
+            help us feel better, think clearer, and live healthier lives. You&apos;re
+            about to explore some of nature&apos;s best-kept secrets!
           </p>
         </div>
       </div>

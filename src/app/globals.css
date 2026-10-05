@@ -1,32 +1,64 @@
 @import 'tailwindcss';
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --cream: #fbf6ec;
+  --cream-dim: #f3eedf;
+  --ink: #0d0807;
+  --ink-70: rgba(13, 8, 7, 0.7);
+  --ink-40: rgba(13, 8, 7, 0.4);
+  --ink-15: rgba(13, 8, 7, 0.15);
+  --copper: #b85a2a;
+  --copper-deep: #8a3d18;
+  --background: var(--cream);
+  --foreground: var(--ink);
+  color-scheme: light;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme inline {
+  --color-cream: var(--cream);
+  --color-cream-dim: var(--cream-dim);
+  --color-ink: var(--ink);
+  --color-copper: var(--copper);
+  --color-copper-deep: var(--copper-deep);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-fraunces);
+}
+
+html {
+  background: var(--background);
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
+  background:
+    radial-gradient(
+      1200px 600px at 85% -10%,
+      rgba(184, 90, 42, 0.12),
+      transparent 55%
+    ),
+    radial-gradient(
+      900px 500px at -10% 20%,
+      rgba(13, 8, 7, 0.04),
+      transparent 50%
+    ),
+    linear-gradient(180deg, var(--cream) 0%, var(--cream-dim) 100%);
+  background-attachment: fixed;
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  min-height: 100vh;
 }
 
-/* Custom animations for better UX */
-@keyframes fade-in {
+:focus-visible {
+  outline: 2px solid var(--copper);
+  outline-offset: 3px;
+}
+
+@keyframes rise-in {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -34,43 +66,73 @@ body {
   }
 }
 
-@keyframes pulse-glow {
-  0%,
-  100% {
-    box-shadow: 0 4px 12px rgba(147, 51, 234, 0.25);
+@keyframes soft-fade {
+  from {
+    opacity: 0;
   }
-  50% {
-    box-shadow: 0 6px 20px rgba(147, 51, 234, 0.4);
+  to {
+    opacity: 1;
   }
 }
 
-.animate-fade-in {
-  animation: fade-in 0.3s ease-out;
+@keyframes copper-underline {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
 }
 
-/* CTA Button Enhancement */
-.cta-button {
-  animation: pulse-glow 2s ease-in-out infinite;
+.animate-rise {
+  animation: rise-in 0.7s ease-out both;
 }
 
-.cta-button:hover {
-  animation: none;
-  cursor: pointer;
+.animate-rise-delay {
+  animation: rise-in 0.7s ease-out 0.15s both;
 }
 
-/* Enhanced dropdown hover effects */
-select:hover {
-  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.15);
+.animate-rise-delay-2 {
+  animation: rise-in 0.7s ease-out 0.3s both;
 }
 
-select:focus {
-  box-shadow: 0 4px 12px rgba(147, 51, 234, 0.25);
+.animate-fade {
+  animation: soft-fade 1s ease-out both;
 }
 
-/* Custom dropdown arrow styling */
-.dropdown-arrow {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b46c1' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
-  background-position: right 1rem center;
-  background-repeat: no-repeat;
-  background-size: 1.5em 1.5em;
+.cta-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.cta-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform-origin: left;
+  transform: scaleX(0);
+  transition: transform 0.35s ease;
+}
+
+.cta-link:hover::after,
+.cta-link:focus-visible::after {
+  transform: scaleX(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
 }

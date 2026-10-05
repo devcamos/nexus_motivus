@@ -2,11 +2,11 @@ import type { ReactNode } from 'react';
 
 import { cn } from '@/lib/cn';
 
-type ContainerProps = {
+type ContainerProps = Readonly<{
   children: ReactNode;
   className?: string;
   as?: 'div' | 'section' | 'main' | 'footer' | 'header';
-};
+}>;
 
 export function Container({
   children,

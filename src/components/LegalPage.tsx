@@ -3,10 +3,10 @@ import type { ReactNode } from 'react';
 
 import { Container } from '@/components/Container';
 
-type LegalPageProps = {
+type LegalPageProps = Readonly<{
   title: string;
   children: ReactNode;
-};
+}>;
 
 export function LegalPage({ title, children }: LegalPageProps) {
   return (

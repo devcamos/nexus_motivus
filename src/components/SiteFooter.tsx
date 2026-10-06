@@ -5,7 +5,7 @@ import { company, legalLinks } from '@/lib/company';
 
 export function SiteFooter() {
   return (
-    <footer className="mt-auto border-t border-ink/10 bg-cream-dim">
+    <footer className="mt-auto border-t border-ink/10 bg-paper">
       <Container className="flex flex-col gap-6 py-10 sm:flex-row sm:items-start sm:justify-between">
         <div className="space-y-2">
           <p className="font-display text-base tracking-[0.06em] text-ink">
@@ -18,7 +18,7 @@ export function SiteFooter() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm text-ink/70 transition-colors hover:text-copper"
+              className="text-sm text-ink/70 transition-colors hover:text-copper-deep"
             >
               {link.label}
             </Link>

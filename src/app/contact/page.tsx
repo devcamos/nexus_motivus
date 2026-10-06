@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <Container as="main" className="py-16 sm:py-24">
-      <p className="animate-rise text-xs uppercase tracking-[0.18em] text-copper">
+      <p className="animate-rise text-xs uppercase tracking-[0.18em] text-copper-deep">
         Contact
       </p>
       <h1 className="animate-rise-delay mt-4 font-display text-4xl tracking-tight text-ink sm:text-5xl">
@@ -36,7 +36,7 @@ export default function ContactPage() {
           <dd className="mt-2">
             <a
               href={contactMailto()}
-              className="cta-link text-lg text-copper hover:text-copper-deep"
+              className="cta-link text-lg text-copper-deep"
             >
               {company.email}
             </a>

@@ -58,7 +58,7 @@ export default function HomePage() {
           as="main"
           className="relative flex min-h-[78vh] flex-col justify-center py-20 sm:py-28"
         >
-          <p className="animate-rise font-display text-sm uppercase tracking-[0.28em] text-copper">
+          <p className="animate-rise font-display text-sm uppercase tracking-[0.28em] text-copper-deep">
             {company.shortName}
           </p>
           <h1 className="animate-rise-delay mt-6 max-w-3xl font-display text-5xl leading-[1.05] tracking-tight text-ink sm:text-6xl lg:text-7xl">
@@ -70,7 +70,7 @@ export default function HomePage() {
           <div className="animate-rise-delay-2 mt-10">
             <Link
               href="/contact"
-              className="cta-link font-display text-lg text-copper transition-colors hover:text-copper-deep"
+              className="cta-link font-display text-lg text-copper-deep"
             >
               Contact
             </Link>
@@ -78,7 +78,7 @@ export default function HomePage() {
         </Container>
       </section>
 
-      <section className="border-t border-ink/10 bg-cream/60 py-20 sm:py-24">
+      <section className="border-t border-ink/10 bg-paper py-20 sm:py-24">
         <Container>
           <h2 className="font-display text-3xl tracking-tight text-ink sm:text-4xl">
             What Nexus builds
@@ -101,7 +101,7 @@ export default function HomePage() {
             Prefer email?{' '}
             <a
               href={contactMailto('Hello from the website')}
-              className="text-copper underline-offset-4 hover:underline"
+              className="text-copper-deep underline-offset-4 hover:underline"
             >
               {company.email}
             </a>

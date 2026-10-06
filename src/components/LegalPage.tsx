@@ -11,7 +11,7 @@ type LegalPageProps = Readonly<{
 export function LegalPage({ title, children }: LegalPageProps) {
   return (
     <Container as="main" className="py-16 sm:py-20">
-      <p className="mb-4 text-xs uppercase tracking-[0.18em] text-copper">
+      <p className="mb-4 text-xs uppercase tracking-[0.18em] text-copper-deep">
         Legal · Draft
       </p>
       <h1 className="font-display text-4xl tracking-tight text-ink sm:text-5xl">
@@ -24,7 +24,7 @@ export function LegalPage({ title, children }: LegalPageProps) {
         Questions?{' '}
         <Link
           href="/contact"
-          className="text-copper underline-offset-4 hover:underline"
+          className="text-copper-deep underline-offset-4 hover:underline"
         >
           Contact us
         </Link>

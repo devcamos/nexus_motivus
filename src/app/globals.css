@@ -1,12 +1,12 @@
 @import 'tailwindcss';
 
 :root {
-  --cream: #fbf6ec;
-  --cream-dim: #f3eedf;
-  --ink: #0d0807;
-  --ink-70: rgba(13, 8, 7, 0.7);
-  --ink-40: rgba(13, 8, 7, 0.4);
-  --ink-15: rgba(13, 8, 7, 0.15);
+  --cream: #fffaf1;
+  --paper: #f3ead8;
+  --ink: #1b1510;
+  --ink-70: rgba(27, 21, 16, 0.7);
+  --ink-40: rgba(27, 21, 16, 0.4);
+  --ink-15: rgba(27, 21, 16, 0.15);
   --copper: #b85a2a;
   --copper-deep: #8a3d18;
   --background: var(--cream);
@@ -16,7 +16,7 @@
 
 @theme inline {
   --color-cream: var(--cream);
-  --color-cream-dim: var(--cream-dim);
+  --color-paper: var(--paper);
   --color-ink: var(--ink);
   --color-copper: var(--copper);
   --color-copper-deep: var(--copper-deep);
@@ -40,10 +40,10 @@ body {
     ),
     radial-gradient(
       900px 500px at -10% 20%,
-      rgba(13, 8, 7, 0.04),
+      rgba(27, 21, 16, 0.04),
       transparent 50%
     ),
-    linear-gradient(180deg, var(--cream) 0%, var(--cream-dim) 100%);
+    linear-gradient(180deg, var(--cream) 0%, var(--paper) 100%);
   background-attachment: fixed;
   color: var(--foreground);
   font-family: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
@@ -51,7 +51,7 @@ body {
 }
 
 :focus-visible {
-  outline: 2px solid var(--copper);
+  outline: 2px solid var(--copper-deep);
   outline-offset: 3px;
 }
 

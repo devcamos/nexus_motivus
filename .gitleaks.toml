@@ -1,0 +1,8 @@
+title = "Nexus Motivus gitleaks"
+[allowlist]
+description = "Allow local tooling paths"
+paths = [
+  '''gitleaks-report\.json''',
+  '''coverage/.*''',
+  '''\.next/.*''',
+]

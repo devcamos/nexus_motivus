@@ -1,52 +1,39 @@
-import { dirname } from "path";
-import { fileURLToPath } from "url";
-import { FlatCompat } from "@eslint/eslintrc";
+import nextPlugin from 'eslint-config-next';
+import prettier from 'eslint-config-prettier/flat';
 
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-const compat = new FlatCompat({
-  baseDirectory: __dirname,
-});
-
+/** @type {import('eslint').Linter.Config[]} */
 const eslintConfig = [
   {
-    ignores: ["**/node_modules/*", ".next/*", "dist/*"],
-  },
-  ...compat.config({
-    extends: [
-      "next/core-web-vitals",
-      "plugin:@typescript-eslint/recommended",
-      "prettier",
+    ignores: [
+      '**/node_modules/**',
+      '.next/**',
+      'dist/**',
+      'coverage/**',
+      'playwright-report/**',
+      'test-results/**',
     ],
-    parser: "@typescript-eslint/parser",
-    plugins: ["@typescript-eslint", "react-hooks"],
+  },
+  ...nextPlugin,
+  prettier,
+  {
     rules: {
-      "@typescript-eslint/no-unused-vars": "error",
-      "@typescript-eslint/no-explicit-any": "error",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": "warn",
-      "@typescript-eslint/consistent-type-imports": [
-        "warn",
-        { prefer: "type-imports" },
-      ],
-      "import/order": [
-        "error",
+      'import/order': [
+        'error',
         {
-          groups: ["builtin", "external", "internal", "parent", "sibling", "index"],
-          "newlines-between": "always",
-          alphabetize: { order: "asc" },
+          groups: [
+            'builtin',
+            'external',
+            'internal',
+            'parent',
+            'sibling',
+            'index',
+          ],
+          'newlines-between': 'always',
+          alphabetize: { order: 'asc' },
         },
       ],
     },
-    settings: {
-      "import/resolver": {
-        typescript: {
-          project: "./tsconfig.json",
-        },
-      },
-    },
-  }),
+  },
 ];
 
 export default eslintConfig;

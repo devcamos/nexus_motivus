@@ -11,9 +11,6 @@ export function SiteFooter() {
           <p className="font-display text-base tracking-[0.06em] text-ink">
             {company.legalName}
           </p>
-          <p className="text-sm text-ink/60">
-            Company number {company.companyNumber}
-          </p>
           <p className="text-sm text-ink/60">United Kingdom</p>
         </div>
         <nav aria-label="Legal" className="flex flex-wrap gap-x-5 gap-y-2">

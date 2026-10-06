@@ -8,9 +8,7 @@ describe('SiteFooter', () => {
   it('shows company identity and legal links', () => {
     render(<SiteFooter />);
     expect(screen.getByText(company.legalName)).toBeTruthy();
-    expect(
-      screen.getByText(`Company number ${company.companyNumber}`)
-    ).toBeTruthy();
+    expect(screen.getByText('United Kingdom')).toBeTruthy();
     expect(screen.getByRole('link', { name: 'Terms' })).toHaveAttribute(
       'href',
       '/legal/terms'

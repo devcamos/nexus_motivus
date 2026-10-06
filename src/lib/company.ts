@@ -1,7 +1,6 @@
 export const company = {
   legalName: 'NEXUS MOTIVUS LTD',
   shortName: 'Nexus Motivus',
-  companyNumber: '16746897',
   email: 'hello@nexusmotivus.ai',
   domain: 'nexusmotivus.ai',
   tagline: 'Software with calm clarity.',

@@ -18,8 +18,8 @@ export default function TermsPage() {
       </p>
       <p>
         Until then, use of this website is at your own discretion.{' '}
-        {company.legalName} (company number {company.companyNumber}) may update
-        this page without notice as formal terms are prepared.
+        {company.legalName} may update this page without notice as formal terms
+        are prepared.
       </p>
       <p>
         Nothing on this page creates a contract for goods or services. Product

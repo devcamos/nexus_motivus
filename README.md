@@ -1,6 +1,6 @@
 # Nexus Motivus
 
-Company marketing website for **NEXUS MOTIVUS LTD** (UK company number 16746897).
+Company marketing website for **NEXUS MOTIVUS LTD**.
 
 Calm, static-first App Router site: home, contact (mailto only), and draft legal pages. No database, auth, payments, AI, uploads, or background jobs.
 
@@ -57,7 +57,7 @@ CI runs the same sequence on every push and pull request (plus `npm audit --audi
 
 ## Company footer
 
-Footer shows `NEXUS MOTIVUS LTD` and company number `16746897`. Registered office is not asserted as Manchester on this site (Companies House lists Thornton Heath).
+Footer shows `NEXUS MOTIVUS LTD` and United Kingdom. Registered office details are not published on this site.
 
 ## Project layout
 

@@ -11,7 +11,6 @@ import {
 describe('company constants', () => {
   it('exposes the UK company identity', () => {
     expect(company.legalName).toBe('NEXUS MOTIVUS LTD');
-    expect(company.companyNumber).toBe('16746897');
     expect(company.email).toContain('@nexusmotivus.ai');
   });
 

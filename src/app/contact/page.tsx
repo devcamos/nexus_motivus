@@ -31,12 +31,6 @@ export default function ContactPage() {
         </div>
         <div>
           <dt className="text-xs uppercase tracking-[0.16em] text-ink/45">
-            Company number
-          </dt>
-          <dd className="mt-2 text-base text-ink">{company.companyNumber}</dd>
-        </div>
-        <div>
-          <dt className="text-xs uppercase tracking-[0.16em] text-ink/45">
             Email
           </dt>
           <dd className="mt-2">

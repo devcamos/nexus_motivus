@@ -19,7 +19,7 @@ test.describe('company site smoke', () => {
     await expect(
       page.getByRole('heading', { name: 'Reach Nexus Motivus' })
     ).toBeVisible();
-    await expect(page.getByText('16746897', { exact: true })).toBeVisible();
+    await expect(page.getByText('NEXUS MOTIVUS LTD')).toBeVisible();
     await expect(
       page.getByRole('link', { name: 'hello@nexusmotivus.ai' })
     ).toHaveAttribute('href', /mailto:hello@nexusmotivus\.ai/);

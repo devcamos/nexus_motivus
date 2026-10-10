@@ -1,0 +1,37 @@
+name: Decision Lab checks
+
+on:
+  pull_request:
+    paths: ['apps/decision-lab/**', '.github/workflows/decision-lab-checks.yml']
+  push:
+    branches: ['main', 'feature/decision-lab']
+    paths: ['apps/decision-lab/**', '.github/workflows/decision-lab-checks.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: decision-lab-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: apps/decision-lab
+    steps:
+      - uses: actions/checkout@fbc6f3992d24b796d5a048ff273f7fcc4a7b6c09 # v5
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          cache: npm
+          cache-dependency-path: apps/decision-lab/package-lock.json
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run test
+      - run: npm run type-check
+      - run: npm run build
